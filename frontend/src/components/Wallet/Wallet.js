@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
+// import { useAuth } from '../../context/AuthContext';
 
 const Wallet = () => {
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { user } = useAuth();
+  // const { user } = useAuth();
 
   useEffect(() => {
     fetchBalance();
@@ -22,7 +22,7 @@ const Wallet = () => {
       const data = await response.json();
       setBalance(data.balance);
     } catch (error) {
-      setError('Failed to fetch balance');
+      setError(`Failed to fetch balance ${error}`);
     }
   };
 
@@ -46,7 +46,7 @@ const Wallet = () => {
         setError(data.error);
       }
     } catch (error) {
-      setError('Deposit failed');
+      setError(`Deposit failed${error}`);
     } finally {
       setLoading(false);
     }
@@ -72,7 +72,7 @@ const Wallet = () => {
         setError(data.error);
       }
     } catch (error) {
-      setError('Withdrawal failed');
+      setError(`Withdrawal failed${error}`);
     } finally {
       setLoading(false);
     }

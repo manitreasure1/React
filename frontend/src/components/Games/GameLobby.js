@@ -21,7 +21,7 @@ const GameLobby = () => {
       const data = await response.json();
       setGames(data);
     } catch (error) {
-      setError('Failed to load games');
+      setError(`Failed to load games${error}`);
     } finally {
       setLoading(false);
     }
@@ -47,7 +47,7 @@ const GameLobby = () => {
         setError(data.error);
       }
     } catch (error) {
-      setError('Failed to create game');
+      setError(`Failed to create game${error}`);
     }
   };
 
@@ -66,7 +66,7 @@ const GameLobby = () => {
         setError(data.error);
       }
     } catch (error) {
-      setError('Failed to join game');
+      setError(`Failed to join game ${error}`);
     }
   };
 

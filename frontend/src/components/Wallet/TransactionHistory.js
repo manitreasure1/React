@@ -19,7 +19,7 @@ const TransactionHistory = () => {
       const data = await response.json();
       setTransactions(data);
     } catch (error) {
-      setError('Failed to load transactions');
+      setError(`Failed to load transactions${error}`);
     } finally {
       setLoading(false);
     }

@@ -11,12 +11,14 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleChange = (e) =>{
+    const {name, value} = e.target;
+    const newField = {...formData};
+    newField[0][name] = value;
+    setFormData(newField)
+
+}
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
